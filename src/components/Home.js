@@ -7,7 +7,6 @@ class Home extends Component {
 
     return(
             <div className="container">
-            <h3>Incident Manager</h3>
             <h4>"Incident Manager app description"</h4>
             </div>
     )

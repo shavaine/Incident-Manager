@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from './Firebase';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 
 class Show extends Component {
 
@@ -13,8 +13,9 @@ class Show extends Component {
   }
 
   componentDidMount() {
-    const ref = firebase.firestore().collection('incidents').doc(this.props.match.params.id);
+    const ref = firebase.firestore().collection('incidents').doc(this.props.id);
     ref.get().then((doc) => {
+    console.log(doc);
       if (doc.exists) {
         this.setState({
           incident: doc.data(),
@@ -34,19 +35,20 @@ class Show extends Component {
     }).catch((error) => {
       console.error("Error removing document: ", error);
     });
+    navigate('/dashboard');
   }
 
   render() {
     return (
-      <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
+      <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-heading">
           <h4><Link to="/">Incident Report</Link></h4>
-            <h3 class="panel-title">
+            <h3 className="panel-title">
               {this.state.incident.customer}
             </h3>
           </div>
-          <div class="panel-body">
+          <div className="panel-body">
             <dl>
               <dt>Priority:</dt>
               <dd>{this.state.incident.priority}</dd>
@@ -55,8 +57,8 @@ class Show extends Component {
               <dt>Status:</dt>
               <dd>{this.state.incident.status}</dd>
             </dl>
-            <Link to={`/edit/${this.state.key}`} class="btn btn-success">Edit</Link>&nbsp;
-            <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
+            <Link to={`/edit/${this.state.key}`} className="btn btn-success">Edit</Link>&nbsp;
+            <button onClick={this.delete.bind(this, this.state.key)} className="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>

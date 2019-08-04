@@ -72,13 +72,13 @@ class Create extends Component {
               </div>
               <div className="form-group">
                 <label for="description">Description:</label>
-                <textArea
+                <textarea
                   className="form-control"
                   name="description"
                   onChange={this.onChange}
                   placeholder="Description"
                   cols="80"
-                  rows="3">{description}</textArea>
+                  rows="3">{description}</textarea>
               </div>
 
               <div className="form-group">

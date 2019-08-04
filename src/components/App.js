@@ -65,6 +65,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <Navigation
@@ -78,12 +79,10 @@ class App extends Component {
             path="/register"
             registerUser={this.registerUser}
           />
-        <Dashboard
-          path="/dashboard"
-          user={this.state.user} />
-          <Edit path="/:editid" />
-          <Create path="/create"/>
-          <Show path="/:showid"/>
+          {this.state.user && <Dashboard path="dashboard" user={this.state.user}/> }
+          {this.state.user && <Edit path="/edit/:id" /> }
+          {this.state.user && <Create path="/create"/> }
+          <Show path="show/:id"/>
         </Router>
       </div>
     );

@@ -16,7 +16,7 @@ class Edit extends Component {
   }
 
   componentDidMount() {
-    const ref = firebase.firestore().collection('incidents').doc(this.props.match.params.id);
+    const ref = firebase.firestore().collection('incidents').doc(this.props.id);
     ref.get().then((doc) => {
       if (doc.exists) {
         const incident = doc.data();
