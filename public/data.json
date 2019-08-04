@@ -1,0 +1,46 @@
+[
+  {
+    "resID": "1000",
+    "status": "arriving",
+    "lastName": "Bond",
+    "firstName": "James",
+    "arrivalDate": "2019-08-02",
+    "departureDate": "2019-08-03",
+    "room": {
+      "type" : "QSB",
+      "number" : "101",
+      "rate" : "110"
+    },
+    "addressOne": "123 New Street",
+    "postalCode": "L9E2P7",
+    "city": "toronto",
+    "province_state": "Ontario",
+    "country": "Canada",
+    "phoneNumber": "9051234567",
+    "email": "jamesbond@hotmail.com",
+    "payment":  "MasterCard",
+    "paymentNumber": "5503456789651234"
+  },
+  {
+    "resID": "1001",
+    "status": "arriving",
+    "lastName": "Newton",
+    "firstName": "Isaac",
+    "arrivalDate": "2019-08-11",
+    "departureDate": "2019-08-12",
+    "room": {
+      "type" : "QQSB",
+      "number" : "111",
+      "rate" : "110"
+    },
+    "addressOne": "321 Main St",
+    "postalCode": "M4T3J8",
+    "city": "Scarborough",
+    "province_state": "Ontario",
+    "country": "Canada",
+    "phoneNumber": "6477894561",
+    "email": "mrnewton@live.ca",
+    "payment":  "Visa",
+    "paymentNumber": "4486654789453654"
+  }
+]
