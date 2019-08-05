@@ -59,7 +59,7 @@ class Create extends Component {
           <div className="panel-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <label htmlFor="customer">customer:</label>
+                <label htmlFor="customer">Customer:</label>
                 <input
                   type="text"
                   className="form-control"

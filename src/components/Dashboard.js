@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "../css/Dashboard.css";
 import firebase from './Firebase';
 import { Link } from '@reach/router';
 
@@ -49,8 +50,8 @@ class Dashboard extends Component {
             <table className="table table-stripe">
               <thead>
                 <tr>
-                  <th >Customer Information</th>
-                  <th>Incident Description</th>
+                  <th></th>
+                  <th >Customer Name</th>
                   <th>Incident Priority</th>
                   <th>Status</th>
                 </tr>
@@ -58,8 +59,12 @@ class Dashboard extends Component {
               <tbody>
                 {this.state.incidents.map(incident =>
                   <tr>
-                    <td><Link to={`/show/${incident.key}`}>{incident.customer}</Link></td>
-                    <td>{incident.description}</td>
+                    <td>
+                      <button className="btn btn-light">
+                        <Link to={`/show/${incident.key}`}>View</Link>
+                      </button>
+                    </td>
+                    <td>{incident.customer}</td>
                     <td>{incident.priority}</td>
                     <td>{incident.status}</td>
                   </tr>
