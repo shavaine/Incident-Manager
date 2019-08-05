@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import firebase from './Firebase';
-import { Router, navigate } from '@reach/router';
-import '../css/App.css';
-import Navigation from './Navigation';
-import Home from './Home';
-import Dashboard from './Dashboard';
-import Login from './Login';
-import Register from './Register';
-import Edit from './Edit';
-import Create from './Create';
-import Show from './Show';
-
+import React, { Component } from "react";
+import firebase from "./Firebase";
+import { Router, navigate } from "@reach/router";
+import "../css/App.css";
+import Navigation from "./Navigation";
+import Home from "./Home";
+import Dashboard from "./Dashboard";
+import Login from "./Login";
+import Register from "./Register";
+import Edit from "./Edit";
+import Create from "./Create";
+import Show from "./Show";
 
 class App extends Component {
   constructor() {
@@ -18,7 +17,7 @@ class App extends Component {
     this.state = {
       user: null,
       displayName: null,
-      userID: null,
+      userID: null
     };
   }
 
@@ -34,7 +33,7 @@ class App extends Component {
     });
   }
 
-// Receives userName and pushes it the the database
+  // Receives userName and pushes it the the database
   registerUser = userName => {
     firebase.auth().onAuthStateChanged(FBUser => {
       FBUser.updateProfile({
@@ -45,7 +44,7 @@ class App extends Component {
           displayName: FBUser.displayName,
           userID: FBUser.uid
         });
-        navigate('/dashboard');
+        navigate("/dashboard");
       });
     });
   };
@@ -61,33 +60,30 @@ class App extends Component {
     firebase
       .auth()
       .signOut()
-      .then(() => { navigate('/login');});
+      .then(() => {
+        navigate("/login");
+      });
   };
 
   render() {
     console.log(this.state);
     return (
       <div>
-        <Navigation
-          user={this.state.user}
-          logOutUser={this.logOutUser}
-        />
+        <Navigation user={this.state.user} logOutUser={this.logOutUser} />
         <Router>
           <Home path="/" user={this.state.user} />
           <Login path="/login" />
-          <Register
-            path="/register"
-            registerUser={this.registerUser}
-          />
-          {this.state.user && <Dashboard path="dashboard" user={this.state.user}/> }
-          {this.state.user && <Edit path="/edit/:id" /> }
-          {this.state.user && <Create path="/create"/> }
-          <Show path="show/:id"/>
+          <Register path="/register" registerUser={this.registerUser} />
+          {this.state.user && (
+            <Dashboard path="dashboard" user={this.state.user} />
+          )}
+          {this.state.user && <Edit path="/edit/:id" />}
+          {this.state.user && <Create path="/create" />}
+          <Show path="show/:id" />
         </Router>
       </div>
     );
   }
 }
-
 
 export default App;

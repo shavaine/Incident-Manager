@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Router} from '@reach/router';
 import firebase from './Firebase';
 import { Link } from '@reach/router';
 
@@ -47,7 +46,6 @@ class Dashboard extends Component {
             </h3>
           </div>
           <div className="panel-body">
-            <h4><Link to="/create">Create Incident</Link></h4>
             <table className="table table-stripe">
               <thead>
                 <tr>

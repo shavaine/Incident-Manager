@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from './Firebase';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 
 class Edit extends Component {
 
@@ -58,42 +58,73 @@ class Edit extends Component {
         description: '',
         status:''
       });
-      this.props.history.push("/show/"+this.props.match.params.id)
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
+    navigate('/dashboard');
   }
 
   render() {
     return (
-      <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
+      <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">
               EDIT BOARD
             </h3>
           </div>
-          <div class="panel-body">
-            <h4><Link to={`/show/${this.state.key}`} class="btn btn-primary">Board List</Link></h4>
+          <div className="panel-body">
+            <h4><Link to={`/show/${this.state.key}`} className="btn btn-primary">Board List</Link></h4>
             <form onSubmit={this.onSubmit}>
-              <div class="form-group">
-                <label for="customer">Customer:</label>
-                <input type="text" class="form-control" name="customer" value={this.state.customer} onChange={this.onChange} placeholder="Customer" />
+              <div className="form-group">
+                <label htmlFor="customer">Customer:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="customer"
+                  value={this.state.customer}
+                  onChange={this.onChange}
+                  placeholder="Customer" />
               </div>
-              <div class="form-group">
-                <label for="priority">Priority:</label>
-                <input type="text" class="form-control" name="priority" value={this.state.priority} onChange={this.onChange} placeholder="Priority" />
+              <div className="form-group">
+                <label htmlFor="priority">Priority:</label>
+                <select
+                  type="text"
+                  className="form-control"
+                  name="priority"
+                  value={this.state.priority}
+                  onChange={this.onChange}>
+                  <option value="" disabled>Select your priority</option>
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                  </select>
               </div>
-              <div class="form-group">
-                <label for="description">Description:</label>
-                <input type="text" class="form-control" name="description" value={this.state.description} onChange={this.onChange} placeholder="Description" />
+              <div className="form-group">
+                <label htmlFor="description">Description:</label>
+                <textarea
+                  type="text"
+                  className="form-control"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.onChange}
+                  ></textarea>
               </div>
-              <div class="form-group">
-                <label for="status">Status:</label>
-                <input type="text" class="form-control" name="status" value={this.state.status} onChange={this.onChange} placeholder="Status" />
+              <div className="form-group">
+                <label htmlFor="status">Status:</label>
+                <select
+                  type="text"
+                  className="form-control"
+                  name="status"
+                  value={this.state.status}
+                  onChange={this.onChange}>
+                  <option value="" disabled>Select your status</option>
+                  <option value="In-Progress">In-Progress</option>
+                  <option value="Completed">Completed</option>
+                  </select>
               </div>
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" className="btn btn-success">Submit</button>
             </form>
           </div>
         </div>

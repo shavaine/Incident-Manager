@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import firebase from './Firebase';
-import { Link, navigate } from '@reach/router';
+import { navigate } from '@reach/router';
 
 class Create extends Component {
 
@@ -39,12 +38,12 @@ class Create extends Component {
         description: '',
         status:''
       });
-      this.props.history.push("/")
       navigate('/dashboard');
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
+    navigate('/dashboard');
   }
 
   render() {
@@ -60,50 +59,52 @@ class Create extends Component {
           <div className="panel-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <label for="customer">customer:</label>
+                <label htmlFor="customer">customer:</label>
                 <input
                   type="text"
                   className="form-control"
                   name="customer"
                   value={customer}
                   onChange={this.onChange}
-                  placeholder="customer"
+                  placeholder="Customer Name"
                   />
               </div>
               <div className="form-group">
-                <label for="description">Description:</label>
+                <label htmlFor="description">Description:</label>
                 <textarea
                   className="form-control"
                   name="description"
+                  value={description}
                   onChange={this.onChange}
                   placeholder="Description"
                   cols="80"
-                  rows="3">{description}</textarea>
+                  rows="3"
+                />
               </div>
 
               <div className="form-group">
-                <label for="priority">Priority:</label>
+                <label htmlFor="priority">Priority:</label>
                 <select
                   className="form-control"
                   name="priority"
                   value={priority}
                   onChange={this.onChange}>
-                  <option value="" disabled selected>Select your priority</option>
-                  <option>High</option>
-                  <option>Medium</option>
-                  <option>Low</option>
+                  <option value="" disabled>Select your priority</option>
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
                 </select>
               </div>
               <div className="form-group">
-                <label for="status">Status:</label>
+                <label htmlFor="status">Status:</label>
                 <select
                   className="form-control"
                   name="status"
                   value={status}
                   onChange={this.onChange}>
-                  <option value="" disabled selected>Select your status</option>
-                  <option>In-Progress</option>
-                  <option>Completed</option>
+                  <option value="" disabled>Select your status</option>
+                  <option value="In-Progress">In-Progress</option>
+                  <option value="Completed">Completed</option>
                 </select>
               </div>
               <button type="submit" className="btn btn-success">Submit</button>
