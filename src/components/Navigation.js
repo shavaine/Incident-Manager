@@ -21,8 +21,8 @@ const { user, logOutUser } = this.props;
                           <li className="nav-item" role="presentation">
                             {user && ( <Link to="/dashboard" className="nav-link">Dashboard</Link> )}
                           </li>
-                          <li className="nav-item" className="nav-link">
-                            {user && ( <Link to="/create">Create Incident</Link> )}
+                          <li className="nav-item" role="presentation">
+                            {user && ( <Link to="/create" className="nav-link">Create Incident</Link> )}
                           </li>
                       </ul>
                       <span className="navbar-text actions">

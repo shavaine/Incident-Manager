@@ -43,10 +43,8 @@ class Show extends Component {
       <div className="container">
         <div className="panel panel-default">
           <div className="panel-heading">
-          <h4><Link to="/">Incident Report</Link></h4>
-            <h3 className="panel-title">
-              {this.state.incident.customer}
-            </h3>
+          <h3>Create Report</h3>
+            <h4 className="panel-title">{this.state.incident.customer}</h4>
           </div>
           <div className="panel-body">
             <dl>

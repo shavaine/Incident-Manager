@@ -70,12 +70,10 @@ class Edit extends Component {
       <div className="container">
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h3 className="panel-title">
-              EDIT BOARD
-            </h3>
+            <h3 className="panel-title">Edit Report</h3>
+            <h4>{this.state.customer}</h4>
           </div>
           <div className="panel-body">
-            <h4><Link to={`/show/${this.state.key}`} className="btn btn-primary">Board List</Link></h4>
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label htmlFor="customer">Customer:</label>
@@ -125,6 +123,7 @@ class Edit extends Component {
                   </select>
               </div>
               <button type="submit" className="btn btn-success">Submit</button>
+              <h4><Link to={`/show/${this.state.key}`} className="btn btn-primary">Back</Link></h4>
             </form>
           </div>
         </div>
