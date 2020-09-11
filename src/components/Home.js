@@ -5,7 +5,8 @@ class Home extends Component {
     return(
             <div className="jumbotron justify-content-center">
             <h4>Incident Manager is a React CRUD application with user
-                authentication. The application is capable taking customer info and storing it into Cloud Firestore database.</h4>
+                authentication. The application is capable of taking customer information about an incident and storing it into Cloud Firestore database.</h4><br/>
+            <h4>This is a "Single Page Application"</h4>
             </div>
     )
   }
